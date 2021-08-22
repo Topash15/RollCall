@@ -3,10 +3,11 @@ const { test } = require('@jest/globals');
 const Engineer = require('../lib/Engineer');
 
 // jest.mock('../lib/Engineer');
+// constructor(name, id, email, role, officeNumber, github, school)
 
 test('Creates new engineer object', () => {
-    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', 'GitUsername');
-    console.log(engineer);
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', null, 'GitUsername', null);
+    // console.log(engineer);
 
     expect(engineer.name).toBe('Jeff');
     expect(engineer.id).toEqual(expect.any(Number));
@@ -16,31 +17,31 @@ test('Creates new engineer object', () => {
 });
 
 test('gets engineer name', () => {
-    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', null, 'GitUsername', null);
 
     expect(engineer.getName()).toBe('Jeff')
 })
 
 test('gets engineer id', () => {
-    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', null, 'GitUsername', null);
 
     expect(engineer.getId()).toBe(0);
 })
 
 test('gets engineer email', () => {
-    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', null, 'GitUsername', null);
 
     expect(engineer.getEmail()).toBe('email');
 })
 
 test('gets engineer role', () => {
-    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', null, 'GitUsername', null);
 
     expect(engineer.getRole()).toBe('Engineer');
 })
 
 test('gets engineer github', () => {
-    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', "GitUsername");
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', null, 'GitUsername', null);
 
     expect(engineer.getGithub()).toBe('GitUsername');
 })
