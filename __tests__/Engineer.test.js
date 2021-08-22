@@ -1,39 +1,46 @@
 // const { expect } = require('@jest/globals');
 const { test } = require('@jest/globals');
-const Employee = require('../lib/Employee');
+const Engineer = require('../lib/Engineer');
 
-// jest.mock('../lib/Employee');
+// jest.mock('../lib/Engineer');
 
-test('Creates new employee object', () => {
-    const employee = new Employee('Jeff', 0, "email", 'Employee');
-    console.log(employee);
+test('Creates new engineer object', () => {
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', 'GitUsername');
+    console.log(engineer);
 
-    expect(employee.name).toBe('Jeff');
-    expect(employee.id).toEqual(expect.any(Number));
-    expect(employee.email).toEqual(expect.any(String));
-    expect(employee.role).toEqual(expect.any(String));
+    expect(engineer.name).toBe('Jeff');
+    expect(engineer.id).toEqual(expect.any(Number));
+    expect(engineer.email).toEqual(expect.any(String));
+    expect(engineer.role).toEqual(expect.any(String));
+    expect(engineer.github).toEqual(expect.any(String));
 });
 
-test('gets employee name', () => {
-    const employee = new Employee('Jeff', 0, "email", 'Employee');
+test('gets engineer name', () => {
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
 
-    expect(employee.getName()).toBe('Jeff')
+    expect(engineer.getName()).toBe('Jeff')
 })
 
-test('gets employee id', () => {
-    const employee = new Employee('Jeff', 0, "email", 'Employee');
+test('gets engineer id', () => {
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
 
-    expect(employee.getId()).toBe(0);
+    expect(engineer.getId()).toBe(0);
 })
 
-test('gets employee email', () => {
-    const employee = new Employee('Jeff', 0, "email", 'Employee');
+test('gets engineer email', () => {
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
 
-    expect(employee.getEmail()).toBe('email');
+    expect(engineer.getEmail()).toBe('email');
 })
 
-test('gets employee role', () => {
-    const employee = new Employee('Jeff', 0, "email", 'Employee');
+test('gets engineer role', () => {
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer');
 
-    expect(employee.getRole()).toBe('Employee');
+    expect(engineer.getRole()).toBe('Engineer');
+})
+
+test('gets engineer github', () => {
+    const engineer = new Engineer('Jeff', 0, "email", 'Engineer', "GitUsername");
+
+    expect(engineer.getGithub()).toBe('GitUsername');
 })
