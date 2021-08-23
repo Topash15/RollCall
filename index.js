@@ -1,10 +1,10 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-const employee = require('./lib/Employee.js');
-const engineer = require('./lib/Engineer.js');
-const intern = require('./lib/Intern.js');
-const manager = require('./lib/Manager.js');
+const Employee = require('./lib/Employee.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+const Manager = require('./lib/Manager.js');
 
 //questions
 const questions = [
@@ -143,6 +143,7 @@ function addEmployee() {
     .then(function(answers){
         employeeList.push(answers);
         console.log(employeeList);
+        console.log(answers.github)
     })
     .then(function(){
         confirmAdd();
