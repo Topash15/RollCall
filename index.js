@@ -1,10 +1,13 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+
 const Employee = require('./lib/Employee.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
+
+// const cardTemplate = require('./src/cardTemplate.js');
 
 //manager questions
 const managerQuestions = [
@@ -258,6 +261,7 @@ function confirmAdd() {
             addIntern();
         } else {
             // call function to write to page
+            writeHTML();
             console.log(employeeList);
         }
     })
@@ -265,9 +269,21 @@ function confirmAdd() {
 
 //function to write html
 function writeHTML (){
-    for (let i = 0; i <= employeeList.length; i++){
+    for (let i = 0; i < employeeList.length; i++){
+        //checks which class object belongs to
         let employee = employeeList[i];
-        // if (employee.)
+            if (employee instanceof Manager){
+                //write manager card 
+                $( "div").html("Hi")
+                // $("#card-container").html(`<div class="col-lg-4"><div class="card col-lg-5" id="card-template" style="width: 18rem;"><div class="card-body"><h5 class="card-title">${name}</h5><h4 class="card-subtitle">Manager</h4><p class="card-text">ID Number: ${id}</p><p class="card-text">Email: ${email}</p><p class="card-text">Office Number: ${officeNumber}</p></div></div>`)
+                console.log("done")
+                console.log('added manager');
+            } else if (employee instanceof Intern){
+                // write intern card
+            } else {
+                // write engineer card
+            }
+        console.log(employee)
     }
 }
 
