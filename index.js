@@ -1,3 +1,4 @@
+// const { test } = require('@jest/globals');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
@@ -7,7 +8,7 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
-// const cardTemplate = require('./src/cardTemplate.js');
+// const test = require('./src/cardTemplate.js');
 
 //manager questions
 const managerQuestions = [
@@ -269,23 +270,131 @@ function confirmAdd() {
 
 //function to write html
 function writeHTML (){
+
     for (let i = 0; i < employeeList.length; i++){
         //checks which class object belongs to
         let employee = employeeList[i];
             if (employee instanceof Manager){
+                let name = employee.getName();
+                let id = employee.getId();
+                let email = employee.getEmail();
+                let officeNumber = employee.getOfficeNumber();
+                createManagerCard(name, id, email, officeNumber);
                 //write manager card 
-                $( "div").html("Hi")
-                // $("#card-container").html(`<div class="col-lg-4"><div class="card col-lg-5" id="card-template" style="width: 18rem;"><div class="card-body"><h5 class="card-title">${name}</h5><h4 class="card-subtitle">Manager</h4><p class="card-text">ID Number: ${id}</p><p class="card-text">Email: ${email}</p><p class="card-text">Office Number: ${officeNumber}</p></div></div>`)
-                console.log("done")
                 console.log('added manager');
             } else if (employee instanceof Intern){
                 // write intern card
+                let name = employee.getName();
+                let id = employee.getId();
+                let email = employee.getEmail();
+                let school = employee.getSchool();
+                createInternCard(name, id, email, school);
             } else {
                 // write engineer card
+                let name = employee.getName();
+                let id = employee.getId();
+                let email = employee.getEmail();
+                let github = employee.getGithub();
+                createEngineerCard(name, id, email, github);
             }
         console.log(employee)
+    
     }
+    console.log('printing')
+    html += endingHTML;
+    fs.writeFile('test.html', html, function(err){
+        if (err) { 
+            return console.error(err);
+        };
+
+        console.log('done')
+    })
 }
+
+let html = ''
+
+//beginning html
+const startHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Roll Call</title>
+</head>
+<header>
+    <div class="container">
+        <h1 class = "title" >Roll Call</h1>
+    </div>
+</header>
+<body>
+    <section class="container card-container">
+        <div class="row" id = "card-container">`;
+
+//ending html
+const endingHTML = `
+        </div>
+    </section>
+
+    <script src = "src/jquery3_6_0"></script>
+    <script src = "/index.js"></script>
+</body>
+</html>`
+
+//creates html for manager
+function createManagerCard(name, id, email, officeNumber){
+    let managerHTML = `
+            <div class="col-lg-4">
+                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <h4 class="card-subtitle">Manager</h4>
+                        <p class="card-text">ID Number: ${id}</p>
+                        <p class="card-text">Email: ${email}</p>
+                        <p class="card-text">Office Number: ${officeNumber}</p>
+                    </div>
+                </div>
+            </div>`
+    html = startHTML + managerHTML;
+}
+
+//creates html for intern
+function createInternCard(name, id, email, school){
+    let internHTML = `
+            <div class="col-lg-4">
+                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <h4 class="card-subtitle">Intern</h4>
+                        <p class="card-text">ID Number: ${id}</p>
+                        <p class="card-text">Email: ${email}</p>
+                        <p class="card-text">School: ${school}</p>
+                    </div>
+                </div>
+            </div>`
+    html += internHTML;
+}
+
+//creates html for engineer
+function createEngineerCard(name, id, email, github){
+    let engineerHTML = `
+            <div class="col-lg-4">
+                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <h4 class="card-subtitle">Engineer</h4>
+                        <p class="card-text">ID Number: ${id}</p>
+                        <p class="card-text">Email: ${email}</p>
+                        <p class="card-text">School: ${github}</p>
+                    </div>
+                </div>
+            </div>`
+    html += engineerHTML;
+
+}
+
 
 // Function call to initialize app
 init();
