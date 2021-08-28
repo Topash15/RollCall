@@ -8,7 +8,7 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
-// const test = require('./src/cardTemplate.js');
+const cardTemplate = require('./src/cardTemplate.js');
 
 //manager questions
 const managerQuestions = [
@@ -213,7 +213,7 @@ function init() {
         let {name, id, email, officeNumber} = answers;
         const manager = new Manager(name, id, email, officeNumber);
         employeeList.push(manager);
-        console.log(employeeList);
+        // console.log(employeeList);
     })
     .then(function(){
         confirmAdd();
@@ -229,7 +229,7 @@ function addEngineer() {
         let {name, id, email, github} = answers;
         const engineer = new Engineer(name, id, email, github);
         employeeList.push(engineer);
-        console.log(employeeList);
+        // console.log(employeeList);
     })
     .then(function(){
         confirmAdd();
@@ -245,7 +245,7 @@ function addIntern() {
         let {name, id, email, school} = answers;
         const intern = new Intern(name, id, email, school);
         employeeList.push(intern);
-        console.log(employeeList);
+        // console.log(employeeList);
     })
     .then(function(){
         confirmAdd();
@@ -263,7 +263,7 @@ function confirmAdd() {
         } else {
             // call function to write to page
             writeHTML();
-            console.log(employeeList);
+            // console.log(employeeList);
         }
     })
 }
@@ -281,7 +281,6 @@ function writeHTML (){
                 let officeNumber = employee.getOfficeNumber();
                 createManagerCard(name, id, email, officeNumber);
                 //write manager card 
-                console.log('added manager');
             } else if (employee instanceof Intern){
                 // write intern card
                 let name = employee.getName();
@@ -297,7 +296,7 @@ function writeHTML (){
                 let github = employee.getGithub();
                 createEngineerCard(name, id, email, github);
             }
-        console.log(employee)
+
     
     }
     console.log('printing')
@@ -311,37 +310,11 @@ function writeHTML (){
     })
 }
 
-let html = ''
-
-//beginning html
-const startHTML = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <title>Roll Call</title>
-</head>
-<header>
-    <div class="container">
-        <h1 class = "title" >Roll Call</h1>
-    </div>
-</header>
-<body>
-    <section class="container card-container">
-        <div class="row" id = "card-container">`;
+// beginning html
+const startHTML = cardTemplate.startHTML;
 
 //ending html
-const endingHTML = `
-        </div>
-    </section>
-
-    <script src = "src/jquery3_6_0"></script>
-    <script src = "/index.js"></script>
-</body>
-</html>`
+const endingHTML = cardTemplate.endingHTML;
 
 //creates html for manager
 function createManagerCard(name, id, email, officeNumber){
