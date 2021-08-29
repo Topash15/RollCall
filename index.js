@@ -81,7 +81,7 @@ const internQuestions = [
             if (nameInput){
                 return true
             } else {
-                console.log('Enter a description about the application.')
+                console.log("Enter the employee's name.")
                 return false
             }
         }
@@ -141,7 +141,7 @@ const engineerQuestions = [
             if (nameInput){
                 return true
             } else {
-                console.log('Enter a description about the application.')
+                console.log("Enter the employee's name.");
                 return false
             }
         }
