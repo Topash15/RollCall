@@ -6,6 +6,8 @@
   ## Description 
   
   This application runs is used to create an html page which lists the employees as well as additional information about them. Each employee has an ID, email address, and their role. Each role has some unique information as well. The team manager has an office number, the engineer has their github profile linked, and the interns will have their school listed. Running Roll Call will prompt for the user to input the required information and then output to an easy to read HTML file.
+
+  [Click here to watch it in action!](https://drive.google.com/file/d/1aEUAeTFJsKNlf2dj0FVDKYBRp3e0w_W5/view)
   
   ## Table of Contents
   
