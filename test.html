@@ -6,42 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dist/style.css">
     <title>Roll Call</title>
 </head>
-<header>
-    <div class="container">
-        <h1 class = "title" >Roll Call</h1>
-    </div>
-</header>
-<body>
-    <section class="container card-container">
-        <div class="row" id = "card-container">
-            <div class="col-lg-4">
-                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+        <div class = 'row'>
+            <header class="col-3">
+                <div class="row title-container">
+                    <h1 class = "title">Roll Call</h1>
+                </div>
+            </header>
+        <body>
+            <section class="container card-container col-9">
+                <!-- start of employee cards -->
+                <div class="row">
+
+        <!-- manager card -->
+            <div class="col-lg-4 card-div">
+                <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Bob</h5>
                         <h4 class="card-subtitle">Manager</h4>
-                        <p class="card-text">ID Number: 543</p>
-                        <p class="card-text">Email: bob@mail.com</p>
-                        <p class="card-text">Office Number: 16</p>
+                        <p class="card-text">ID Number: 123</p>
+                        <a class="card-text" href = "mailto:bob@mail.com">Email: bob@mail.com</a>
+                        <p class="card-text">Office Number: 123</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+        <!-- engineer card -->
+            <div class="col-lg-4 card-div">
+                <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Jeff</h5>
+                        <h5 class="card-title">Bill</h5>
+                        <h4 class="card-subtitle">Engineer</h4>
+                        <p class="card-text">ID Number: 234</p>
+                        <a class="card-text" href = "mailto:bill@mail.com">Email: bill@mail.com</a>
+                        <a class="card-text" href="https://github.com/bill"><br>Github: bill</a>
+                    </div>
+                </div>
+            </div>
+        <!-- intern card -->
+            <div class="col-lg-4 card-div">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Jeb</h5>
                         <h4 class="card-subtitle">Intern</h4>
-                        <p class="card-text">ID Number: 854</p>
-                        <p class="card-text">Email: jeff@mail.com</p>
-                        <p class="card-text">School: Penn State</p>
+                        <p class="card-text">ID Number: 345</p>
+                        <a class="card-text" href = "mailto:jeb@mail.com">Email: jeb@mail.com</a>
+                        <p class="card-text">School: 345</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
-    <script src = "src/jquery3_6_0"></script>
-    <script src = "/index.js"></script>
+<script src = "/index.js"></script>
 </body>
 </html>

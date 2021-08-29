@@ -301,7 +301,7 @@ function writeHTML (){
     }
     console.log('printing')
     html += endingHTML;
-    fs.writeFile('test.html', html, function(err){
+    fs.writeFile('index.html', html, function(err){
         if (err) { 
             return console.error(err);
         };
@@ -319,13 +319,14 @@ const endingHTML = cardTemplate.endingHTML;
 //creates html for manager
 function createManagerCard(name, id, email, officeNumber){
     let managerHTML = `
-            <div class="col-lg-4">
-                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+        <!-- manager card -->
+            <div class="col-lg-4 card-div">
+                <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
                         <h4 class="card-subtitle">Manager</h4>
                         <p class="card-text">ID Number: ${id}</p>
-                        <p class="card-text">Email: ${email}</p>
+                        <a class="card-text" href = "mailto:${email}">Email: ${email}</a>
                         <p class="card-text">Office Number: ${officeNumber}</p>
                     </div>
                 </div>
@@ -336,13 +337,14 @@ function createManagerCard(name, id, email, officeNumber){
 //creates html for intern
 function createInternCard(name, id, email, school){
     let internHTML = `
-            <div class="col-lg-4">
-                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+        <!-- intern card -->
+            <div class="col-lg-4 card-div">
+                <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
                         <h4 class="card-subtitle">Intern</h4>
                         <p class="card-text">ID Number: ${id}</p>
-                        <p class="card-text">Email: ${email}</p>
+                        <a class="card-text" href = "mailto:${email}">Email: ${email}</a>
                         <p class="card-text">School: ${school}</p>
                     </div>
                 </div>
@@ -353,14 +355,15 @@ function createInternCard(name, id, email, school){
 //creates html for engineer
 function createEngineerCard(name, id, email, github){
     let engineerHTML = `
-            <div class="col-lg-4">
-                <div class="card col-lg-5" id="card-template" style="width: 18rem;">
+        <!-- engineer card -->
+            <div class="col-lg-4 card-div">
+                <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
                         <h4 class="card-subtitle">Engineer</h4>
                         <p class="card-text">ID Number: ${id}</p>
-                        <p class="card-text">Email: ${email}</p>
-                        <p class="card-text">School: ${github}</p>
+                        <a class="card-text" href = "mailto:${email}">Email: ${email}</a>
+                        <a class="card-text" href="https://github.com/${github}"><br>Github: ${github}</a>
                     </div>
                 </div>
             </div>`
