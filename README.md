@@ -21,7 +21,7 @@
   
   ## Installation
   
-  The application requires node.js and enquirer to run. Navigate to the root file of the program and type npm i to install inquirer. Node.js does need to be installed already for this to work.
+  The application requires node.js and enquirer to run as well as jest for tests. Navigate to the root file of the program and type npm i to install inquirer and jest. Node.js does need to be installed already for this to work.
   
   ## Usage 
   
